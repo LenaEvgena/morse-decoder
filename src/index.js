@@ -43,11 +43,11 @@ function decode(expr) {
     let frase = '';
     for(let i = 0; i < expr.length; i += 10) {
 
-        let letter = expr.slice(i, i + 10);
+        let letter = expr.slice(i, i + 10).replace(/^0+/,'');
         if (letter === '**********') {
             frase += ' ';
         } else {
-            frase += MORSE_TABLE[letter.replace(/^0+/,'').replace(/10/g,'.').replace(/11/g,'-')];
+            frase += MORSE_TABLE[letter.replace(/10/g,'.').replace(/11/g,'-')];
         }
     }
     return frase;
